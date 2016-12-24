@@ -1,5 +1,9 @@
-This project is made with the purpose of learning Angular 2 framework following the
-[Tour of Heroes official tutorial](https://angular.io/docs/ts/latest/tutorial/).
+This project is made with the purpose of learning Angular 2 framework using the
+[Tour of Heroes](https://angular.io/docs/ts/latest/tutorial/) model.
+
+## Additions to the original _Tour of Heroes_
+* New page that shows random heroes.
+* Search results styled with boxes
 
 ## Requirements
 * [Node.js](https://github.com/npm/npmhttps://github.com/nodejs/node) 4 or higher

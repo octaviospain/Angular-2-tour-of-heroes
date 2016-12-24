@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent }   from './dashboard/dashboard.component';
 import { HeroesComponent }      from './heroes/heroes.component';
 import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
+import { HeroSearchComponent } from "./hero-search/hero-search.component";
 
 const routes: Routes = [
     {
@@ -13,7 +14,7 @@ const routes: Routes = [
     },
     {
         path: 'dashboard',
-        component: DashboardComponent
+        component: HeroSearchComponent
     },
     {
         path: 'detail/:id',
@@ -22,6 +23,10 @@ const routes: Routes = [
     {
         path: 'heroes',
         component: HeroesComponent
+    },
+    {
+        path: 'random',
+        component: DashboardComponent
     }
 ];
 
