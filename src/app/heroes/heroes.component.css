@@ -16,6 +16,11 @@ button.delete {
     list-style-type: none;
     padding: 0;
     width: 15em;
+    float: left;
+}
+
+.view-detail {
+    float: right;
 }
 
 .heroes li {

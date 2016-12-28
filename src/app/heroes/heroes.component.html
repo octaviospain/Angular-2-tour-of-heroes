@@ -1,9 +1,19 @@
 <h2>My Heroes</h2>
 <div>
     <label>Hero name:</label> <input #heroName/>
-    <button (click)="add(heroName.value); heroName.value=''">
+    <label>Category:</label> <input #heroCategory/>
+    <select [(ngModel)]="selectedGender">
+        <option *ngFor="let g of genders" [ngValue]="g">{{g}}</option>
+    </select>
+    <button (click)="add(heroName.value, heroCategory.value); heroName.value=''; heroCategory.value=''">
         Add
     </button>
+</div>
+<div *ngIf="selectedHero" class="view-detail">
+    <h2>
+        {{selectedHero.name | uppercase}} is my hero
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
 </div>
 <ul class="heroes">
     <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
@@ -12,9 +22,3 @@
         <button class="delete" (click)="delete(hero); $event.stopPropagation()">x</button>
     </li>
 </ul>
-<div *ngIf="selectedHero">
-    <h2>
-        {{selectedHero.name | uppercase}} is my hero
-    </h2>
-    <button (click)="gotoDetail()">View Details</button>
-</div>

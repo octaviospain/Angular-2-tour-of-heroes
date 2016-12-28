@@ -14,6 +14,8 @@ import { Router } from "@angular/router";
 export class HeroesComponent implements OnInit {
     heroes: Hero[];
     selectedHero: Hero;
+    selectedGender: string;
+    genders: string[] = ['Male', 'Female'];
 
     constructor(private router: Router,
                 private heroService: HeroService) { }
@@ -34,14 +36,14 @@ export class HeroesComponent implements OnInit {
         this.router.navigate(['/detail', this.selectedHero.id]);
     }
 
-    add(name: string): void {
+    add(name: string, category: string): void {
         name = name.trim();
 
-        if (!name) {
+        if (!name || !this.selectedGender) {
             return;
         }
 
-        this.heroService.create(name)
+        this.heroService.create(name, category, this.selectedGender)
             .then(hero => {
                 this.heroes.push(hero);
                 this.selectedHero = null;
