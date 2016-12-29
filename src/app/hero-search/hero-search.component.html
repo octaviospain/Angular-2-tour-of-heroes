@@ -1,6 +1,16 @@
 <div id="search-component">
     <h4>Hero Search</h4>
-    <input #searchBox id="search-box" (keyup)="search(searchBox.value)"/>
+    <div>
+        <input #searchBox id="search-box" (keyup)="search(searchBox.value, category.value, gender.value)"/>
+        <select #category [(ngModel)]="selectedCategory" required>
+            <option selected="selected">All</option>
+            <option *ngFor="let c of categories" [ngValue]="c">{{c}}</option>
+        </select>
+        <select #gender [(ngModel)]="selectedGender" required>
+            <option selected="selected">Both</option>
+            <option *ngFor="let g of genders" [ngValue]="g">{{g}}</option>
+        </select>
+    </div>
     <div class="grid grid-pad">
         <a *ngFor="let hero of heroes | async" (click)="gotoDetail(hero)" class="col-1-4">
             <div class="module hero">

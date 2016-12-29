@@ -5,11 +5,14 @@ import { Hero }           from './hero';
 
 @Injectable()
 export class HeroSearchService {
+
+    private heroesUrl = 'api/heroes';  // URL to web api
+
     constructor(private http: Http) {}
 
-    search(term: string): Observable<Hero[]> {
+    search(term: string, category: string, gender: string): Observable<Hero[]> {
         return this.http
-            .get(`app/heroes/?name=${term}`)
+            .get(`${this.heroesUrl}/?name=${term}`)     // use here an api call that filters the query
             .map((r: Response) => r.json().data as Hero[]);
     }
 }

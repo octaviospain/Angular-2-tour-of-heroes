@@ -51,6 +51,23 @@ export class HeroService {
             .catch(this.handleError);
     }
 
+    getCategories(): Set<String> {
+        var categories = new Set<String>();
+
+        this.getHeroes().then(heroes => {
+
+            for (let hero of heroes) {
+                var heroCategories = hero.categories;
+
+                for (let cat of heroCategories) {
+                    categories.add(cat);
+                }
+            }
+        });
+
+        return categories;
+    }
+
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
